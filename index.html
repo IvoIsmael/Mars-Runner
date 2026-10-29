@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mars Runner | Endless Runner 3D en Marte</title>
+<meta name="description" content="Mars Runner: un astronauta corre por la superficie de Marte esquivando rocas y meteoritos. Juega gratis en tu navegador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="img/favicon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 1. ENCABEZADO DE NAVEGACION -->
+<header class="nav" id="top">
+  <div class="wrap nav-in">
+    <a class="brand" href="#inicio" aria-label="Mars Runner">
+      <img class="logo" src="img/logo.png" alt="Logotipo de Mars Runner" width="48" height="48"><span class="brand-txt">MARS<span>RUNNER</span></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false">&#9776;</button>
+    <nav id="menu">
+      <a href="#historia">Historia</a>
+      <a href="#personaje">Personaje</a>
+      <a href="#mecanicas">Mec&aacute;nicas</a>
+      <a href="#datos">Datos</a>
+      <a href="#jugar" class="nav-cta">Jugar ahora</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- 2. SECCION PRINCIPAL -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="tag">ENDLESS RUNNER 3D</span>
+      <h1>MARS <em>RUNNER</em></h1>
+      <p class="lead">Corre. Salta. Agach&aacute;te. Sobrevive.</p>
+      <p>Una tormenta de meteoritos atrapa a un astronauta lejos de su base en Marte. Su ox&iacute;geno se agota: debe correr sin detenerse, esquivar rocas y meteoritos y alcanzar la meta de <strong>1000 puntos</strong> para llegar a la nave de rescate.</p>
+      <div class="cta">
+        <a href="#jugar" class="btn btn-primary">JUGAR AHORA</a>
+        <a href="#historia" class="btn btn-ghost">Descubre la historia</a>
+      </div>
+      <ul class="quick">
+        <li><b>1000</b><small>Puntos para ganar</small></li>
+        <li><b>3</b><small>Vidas iniciales</small></li>
+        <li><b>&uarr; &darr;</b><small>Saltar / Agacharse</small></li>
+      </ul>
+    </div>
+    <figure class="hero-img">
+      <img src="img/portada.jpg" alt="Arte promocional de Mars Runner: un astronauta salta entre rocas marcianas mientras cae un meteorito">
+    </figure>
+  </div>
+</section>
+
+<!-- 3. HISTORIA -->
+<section class="sec" id="historia">
+  <div class="wrap">
+    <p class="kicker">01 &middot; Historia</p>
+    <h2>Supervivencia en el planeta rojo</h2>
+    <div class="story">
+      <div class="story-text">
+        <article class="card">
+          <h3>Contexto narrativo</h3>
+          <p>En un futuro cercano, una misi&oacute;n cient&iacute;fica explora la superficie de Marte: un desierto &aacute;rido de suelo rojizo, cr&aacute;teres y dunas, bajo un cielo anaranjado con dos peque&ntilde;as lunas, Fobos y Deimos. En el horizonte se distinguen el espacio exterior, la Tierra &mdash;el hogar al que el protagonista quiere volver&mdash; y otro planeta distante.</p>
+          <p>Mientras explora, los sensores detectan una tormenta de meteoritos acompa&ntilde;ada de inestabilidad s&iacute;smica. Su nave se estrella y el astronauta queda solo, lejos de la base de rescate.</p>
+        </article>
+        <article class="card">
+          <h3>Arco argumental</h3>
+          <p>Activa sus propulsores y comienza a correr a toda velocidad. Cada segundo cuenta: su reserva de ox&iacute;geno es limitada y el terreno se vuelve m&aacute;s hostil con el avance, con rocas filosas a ras de suelo y meteoritos incandescentes que cruzan el aire a la altura de su casco.</p>
+          <p>Su motivaci&oacute;n es la supervivencia. Si choca y pierde todas sus vidas, la visera de su casco se agrieta y la misi&oacute;n fracasa; si alcanza la puntuaci&oacute;n meta, llega a la nave de rescate y activa la se&ntilde;al de evacuaci&oacute;n.</p>
+        </article>
+      </div>
+      <figure class="story-img">
+        <img src="img/historia.jpg" alt="Storytelling de Mars Runner en cuatro escenas: eres un astronauta, sufriste un accidente, debes correr hasta que te rescaten, tu &uacute;nica oportunidad">
+        <figcaption>Storytelling: la misi&oacute;n que sali&oacute; mal en Marte.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PERSONAJE -->
+<section class="sec alt" id="personaje">
+  <div class="wrap two center">
+    <figure class="char">
+      <img src="img/astronauta.jpg" alt="Ilustraci&oacute;n del astronauta protagonista de Mars Runner corriendo por Marte">
+    </figure>
+    <div>
+      <p class="kicker">02 &middot; Personaje principal</p>
+      <h2>El Astronauta</h2>
+      <p>Explorador cient&iacute;fico de la misi&oacute;n a Marte. &Aacute;gil y expresivo, su dise&ntilde;o <em>low poly</em> sci-fi transmite una misi&oacute;n de investigaci&oacute;n convertida en una carrera por la vida.</p>
+      <ul class="feat">
+        <li><b>Rol:</b> corredor aut&oacute;mata que avanza sin parar; el jugador decide cu&aacute;ndo saltar y cu&aacute;ndo agacharse.</li>
+        <li><b>Habilidades:</b> salto amplio y flotante gracias a la gravedad reducida; agacharse/deslizarse bajo meteoritos reduciendo su &aacute;rea de colisi&oacute;n.</li>
+        <li><b>Animaciones:</b> correr, saltar, agacharse y muerte.</li>
+        <li><b>Rasgos est&eacute;ticos:</b> traje blanco con franjas rojas, casco con visor reflectante y mochila de soporte vital.</li>
+        <li><b>Resistencia:</b> 3 vidas, con breve invulnerabilidad tras cada impacto.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. MECANICAS -->
+<section class="sec" id="mecanicas">
+  <div class="wrap">
+    <p class="kicker">03 &middot; Mec&aacute;nicas y controles</p>
+    <h2>Dos teclas. Cero margen de error.</h2>
+    <div class="controls">
+      <div class="key"><span class="kbd">&uarr;</span><h3>Saltar</h3><p>Flecha Arriba. Supera las rocas marcianas a ras de suelo.</p></div>
+      <div class="key"><span class="kbd">&darr;</span><h3>Agacharse</h3><p>Flecha Abajo. Pasa bajo los meteoritos; el collider se reduce seg&uacute;n la postura.</p></div>
+    </div>
+    <div class="two rules">
+      <article class="card">
+        <h3>Obst&aacute;culos</h3>
+        <ul>
+          <li><b>Rocas marcianas (bajos):</b> formaciones rojizas y angulosas. Se esquivan <em>saltando</em>.</li>
+          <li><b>Meteoritos (altos):</b> rocas incandescentes con estela de fuego a la altura de la cabeza. Se esquivan <em>agach&aacute;ndose</em>.</li>
+          <li>Aparecen de forma <b>aleatoria</b>, en tipo e intervalo de tiempo. Los que quedan atr&aacute;s se eliminan de la escena.</li>
+          <li>La velocidad aumenta y el intervalo de aparici&oacute;n disminuye con el tiempo.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Reglas del sistema</h3>
+        <ul>
+          <li>Empiezas con <b>3 vidas</b>; cada choque resta una.</li>
+          <li>Tras un choque, ~2 segundos de invulnerabilidad.</li>
+          <li><b>10 puntos</b> por segundo de supervivencia.</li>
+          <li><b>Victoria:</b> alcanzar 1000 puntos o superar tu r&eacute;cord.</li>
+          <li><b>Derrota:</b> quedarte sin vidas &rarr; pantalla &laquo;Misi&oacute;n Fallida / Juego Terminado&raquo;.</li>
+        </ul>
+      </article>
+    </div>
+    <h3 class="gal-t">El juego en acci&oacute;n</h3>
+    <div class="shots">
+      <figure><img src="img/gameplay-hud.png" alt="Partida en curso con marcador de puntos y ox&iacute;geno"><figcaption>Partida en curso</figcaption></figure>
+      <figure><img src="img/game-over.png" alt="Pantalla de Misi&oacute;n Fallida con puntuaci&oacute;n final"><figcaption>Derrota: Misi&oacute;n Fallida</figcaption></figure>
+      <figure><img src="img/victoria.png" alt="Pantalla de Misi&oacute;n Cumplida con puntuaci&oacute;n final"><figcaption>Victoria: Misi&oacute;n Cumplida</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 6. DATOS E INFOGRAFIA -->
+<section class="sec alt" id="datos">
+  <div class="wrap">
+    <p class="kicker">04 &middot; Datos e infograf&iacute;a</p>
+    <h2>Mars Runner en n&uacute;meros</h2>
+    <div class="stats">
+      <div class="stat"><b data-count="1000">1000</b><small>Puntos objetivo</small></div>
+      <div class="stat"><b data-count="3">3</b><small>Vidas iniciales</small></div>
+      <div class="stat"><b data-count="10">10</b><small>Puntos por segundo</small></div>
+      <div class="stat"><b data-count="100">100</b><small>Segundos aprox. para ganar</small></div>
+      <div class="stat"><b data-count="2">2</b><small>Tipos de obst&aacute;culo</small></div>
+      <div class="stat"><b data-count="4">4</b><small>Animaciones 3D</small></div>
+    </div>
+    <div class="two info">
+      <article class="card">
+        <h3>Ficha t&eacute;cnica</h3>
+        <table>
+          <tr><th>G&eacute;nero</th><td>Endless runner 3D</td></tr>
+          <tr><th>Motor</th><td>Unity (WebGL)</td></tr>
+          <tr><th>C&aacute;mara</th><td>Tercera persona lateral</td></tr>
+          <tr><th>Estilo</th><td>Sci-Fi Low Poly</td></tr>
+          <tr><th>Controles</th><td>Flecha Arriba / Flecha Abajo</td></tr>
+          <tr><th>P&uacute;blico</th><td>Jugadores casuales de 10 a 25 a&ntilde;os</td></tr>
+          <tr><th>Equipo</th><td>Warlings</td></tr>
+        </table>
+      </article>
+      <article class="card">
+        <h3>Progresi&oacute;n de dificultad</h3>
+        <div class="bar"><span>Velocidad</span><i style="--w:85%"></i></div>
+        <div class="bar"><span>Frecuencia de obst&aacute;culos</span><i style="--w:75%"></i></div>
+        <div class="bar"><span>Exigencia de reflejos</span><i style="--w:90%"></i></div>
+        <p class="note">La velocidad sube gradualmente hasta un l&iacute;mite y los obst&aacute;culos aparecen cada vez con menos separaci&oacute;n.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 7. JUGAR AHORA -->
+<section class="sec" id="jugar">
+  <div class="wrap">
+    <p class="kicker">05 &middot; Jugar ahora</p>
+    <h2>Despliega los propulsores</h2>
+    <div class="game-frame">
+      <iframe id="game" title="Mars Runner - Unity WebGL" src="juego/index.html" allowfullscreen allow="fullscreen; autoplay"></iframe>
+    </div>
+    <div class="cta center-cta">
+      <a href="juego/index.html" target="_blank" rel="noopener" class="btn btn-primary">Abrir en pantalla completa</a>
+      <button class="btn btn-ghost" id="fs" type="button">Pantalla completa aqu&iacute;</button>
+    </div>
+    <div class="two req">
+      <article class="card">
+        <h3>Requerimientos m&iacute;nimos</h3>
+        <ul>
+          <li>Navegador de escritorio actualizado: Chrome, Edge o Firefox con WebGL 2.0.</li>
+          <li>4 GB de RAM y gr&aacute;ficos integrados o superiores.</li>
+          <li>Teclado f&iacute;sico (no es compatible con m&oacute;viles).</li>
+          <li>Conexi&oacute;n a internet para la carga inicial (el juego pesa unos pocos MB).</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Instrucciones</h3>
+        <ol>
+          <li>Espera a que termine la barra de carga.</li>
+          <li>Haz clic dentro del juego para darle el foco del teclado.</li>
+          <li><b>&uarr;</b> para saltar rocas, <b>&darr;</b> para agacharte bajo meteoritos.</li>
+          <li>Llega a 1000 puntos antes de perder tus 3 vidas.</li>
+          <li>Si no carga, recarga con Ctrl + F5 o abre el enlace en pantalla completa.</li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="brand">MARS<span>RUNNER</span></div>
+    <p>Proyecto de la asignatura Game Development &middot; Universidad Privada del Valle (UPV) &middot; Equipo Warlings &middot; Portal desarrollado por Ariel Vidal Acarapi Limachi</p>
+    <a href="#top">Volver arriba &uarr;</a>
+  </div>
+</footer>
+
+<script>
+  var b=document.getElementById('burger'),m=document.getElementById('menu');
+  b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);});
+  m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded',false);});});
+  document.getElementById('fs').addEventListener('click',function(){var f=document.getElementById('game');(f.requestFullscreen||f.webkitRequestFullscreen||function(){}).call(f);});
+  // resaltar enlace activo
+  var links=[].slice.call(document.querySelectorAll('#menu a:not(.nav-cta)'));
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section').forEach(function(s){io.observe(s);});
+  // aparicion suave
+  var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.card,.stat,.key,figure').forEach(function(x){x.classList.add('rv');ro.observe(x);});
+</script>
+</body>
+</html>
