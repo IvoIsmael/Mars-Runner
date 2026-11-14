@@ -120,15 +120,17 @@ h1 em { font-style: normal; color: var(--mars); text-shadow: 0 0 36px rgba(255, 
 
 .hero-art { position: relative; }
 .art-frame { position: relative; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 106, 43, .4); box-shadow: 0 30px 80px rgba(0, 0, 0, .6); }
-.art-frame img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.hero-art { display: flex; justify-content: center; }
+.art-frame { width: fit-content; max-width: 100%; background: #000; }
+.art-frame img { width: auto; max-width: 100%; height: auto; max-height: 520px; object-fit: contain; }
 .art-label {
   position: absolute; left: 14px; bottom: 14px;
   background: rgba(7, 3, 15, .8); padding: 6px 12px; border-radius: 4px;
   font-size: .78rem; letter-spacing: .08em; color: var(--cyan);
 }
 .orbit { position: absolute; border: 1px dashed rgba(54, 214, 255, .3); border-radius: 50%; pointer-events: none; }
-.orbit-one { width: 120%; height: 120%; top: -10%; left: -10%; }
-.orbit-two { width: 140%; height: 140%; top: -20%; left: -20%; border-color: rgba(255, 106, 43, .2); }
+.orbit-one { width: 115%; height: 115%; top: -7.5%; left: -7.5%; }
+.orbit-two { width: 130%; height: 130%; top: -15%; left: -15%; border-color: rgba(255, 106, 43, .2); }
 
 /* ===== Secciones ===== */
 .sec { padding: 96px 0; }
@@ -180,7 +182,13 @@ h3 { font-family: var(--font-title); font-weight: 700; font-size: 1.25rem; margi
 .game-wait strong { font-family: var(--font-title); letter-spacing: .1em; }
 .game-wait p { color: var(--muted); }
 .wait-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--mars); color: var(--mars); font-size: 1.4rem; margin-bottom: 8px; }
-.juego.activo .game-wait { display: none; }
+.juego.activo:not(.cargando) .game-wait { display: none; }
+.spinner { display: none; width: 34px; height: 34px; margin-top: 10px; border: 3px solid rgba(255, 255, 255, .15); border-top-color: var(--mars); border-radius: 50%; animation: girar .9s linear infinite; }
+.juego.cargando .spinner { display: block; }
+.juego.cargando .wait-icon { display: none; }
+@keyframes girar { to { transform: rotate(360deg); } }
+.cover-banner { margin-bottom: 28px; border-radius: 14px; overflow: hidden; border: 1px solid rgba(255, 106, 43, .4); box-shadow: 0 24px 60px rgba(0, 0, 0, .5); }
+.cover-banner img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; object-position: center 40%; }
 
 /* ===== Paneles ===== */
 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
