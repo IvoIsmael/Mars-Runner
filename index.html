@@ -105,7 +105,7 @@
 
       <article class="game-card">
         <div class="game-card-image">
-          <img src="img/laberinto-concepto.png" alt="Laberinto marciano con el astronauta y dos aliens" loading="lazy">
+          <img src="img/laberinto-portada.jpg" alt="Portada de The Alien Laberinth: astronauta, aliens y portal de salida" loading="lazy">
           <span class="game-type">Laberinto · Exploración</span>
         </div>
         <div class="game-card-content">
@@ -149,6 +149,7 @@
           <span class="wait-icon">▶</span>
           <strong>Simulador en espera</strong>
           <p>Pulsa START para cargar la misión en esta ventana.</p>
+          <span class="spinner" aria-hidden="true"></span>
         </div>
       </div>
     </div>
@@ -189,6 +190,10 @@
       <p class="section-intro">Tu orientación y tu estrategia deciden si sales con vida.</p>
     </div>
 
+    <figure class="cover-banner">
+      <img src="img/laberinto-portada.jpg" alt="Portada de The Alien Laberinth: astronauta, aliens y portal de salida" loading="lazy">
+    </figure>
+
     <div class="juego">
       <div class="game-bar">
         <div><span class="live-dot"></span><span class="game-name">Laberinto · Unity WebGL</span></div>
@@ -203,6 +208,7 @@
           <span class="wait-icon">▶</span>
           <strong>Simulador en espera</strong>
           <p>Pulsa START para cargar la misión en esta ventana.</p>
+          <span class="spinner" aria-hidden="true"></span>
         </div>
       </div>
     </div>
@@ -482,43 +488,70 @@ document.querySelectorAll('main section').forEach(function (seccion) {
   observadorSecciones.observe(seccion);
 });
 
-// Cada juego se carga solo al pulsar START; al iniciar uno se detiene el otro.
+// Precarga: al abrir la página los juegos se descargan en segundo plano
+// (uno después del otro) y quedan en la caché del navegador.
+// Al pulsar START se reinicia el juego desde la caché y arranca casi al instante.
 var juegos = [].slice.call(document.querySelectorAll('.juego'));
+var TEXTO_ESPERA = 'Pulsa START para cargar la misión en esta ventana.';
+
+function cargarJuego(juego) {
+  var iframe = juego.querySelector('iframe');
+  var destino = iframe.getAttribute('data-src');
+  var actual = iframe.getAttribute('src');
+  if (actual && actual !== 'about:blank') {
+    iframe.contentWindow.location.replace(destino);
+  } else {
+    iframe.src = destino;
+  }
+}
 
 function detenerJuego(juego) {
   juego.querySelector('iframe').src = 'about:blank';
-  juego.classList.remove('activo');
+  juego.classList.remove('activo', 'cargando');
   juego.querySelector('.btn-start').innerHTML = '▶ START';
+  juego.querySelector('.game-wait strong').textContent = 'Simulador en espera';
+  juego.querySelector('.game-wait p').textContent = TEXTO_ESPERA;
 }
 
-juegos.forEach(function (juego) {
+juegos.forEach(function (juego, indice) {
   var iframe = juego.querySelector('iframe');
   var botonInicio = juego.querySelector('.btn-start');
   var botonPantalla = juego.querySelector('.btn-fs');
 
   botonInicio.addEventListener('click', function () {
     juegos.forEach(function (otro) {
-      if (otro !== juego && otro.classList.contains('activo')) {
+      var srcOtro = otro.querySelector('iframe').getAttribute('src');
+      if (otro !== juego && srcOtro && srcOtro !== 'about:blank') {
         detenerJuego(otro);
       }
     });
-    if (juego.classList.contains('activo')) {
-      iframe.contentWindow.location.reload();
-    } else {
-      iframe.src = iframe.getAttribute('data-src');
-      juego.classList.add('activo');
-      botonInicio.innerHTML = '↻ REINICIAR';
-    }
+    juego.classList.add('activo', 'cargando');
+    juego.querySelector('.game-wait strong').textContent = 'Cargando misión…';
+    juego.querySelector('.game-wait p').textContent = 'Un momento, preparando el juego.';
+    botonInicio.innerHTML = '↻ REINICIAR';
+    cargarJuego(juego);
   });
 
   iframe.addEventListener('load', function () {
-    if (!juego.classList.contains('activo')) { return; }
-    iframe.focus();
-    try {
-      var lienzo = iframe.contentWindow.document.getElementById('unity-canvas');
-      if (lienzo) { lienzo.focus(); }
-    } catch (error) {
-      // El navegador puede impedir el acceso al contenido del iframe.
+    if (iframe.getAttribute('src') === 'about:blank') { return; }
+    if (juego.classList.contains('activo')) {
+      juego.classList.remove('cargando');
+      iframe.focus();
+      try {
+        var lienzo = iframe.contentWindow.document.getElementById('unity-canvas');
+        if (lienzo) { lienzo.focus(); }
+      } catch (error) {
+        // El navegador puede impedir el acceso al contenido del iframe.
+      }
+    } else {
+      // Precarga terminada: avisa y pasa al siguiente juego.
+      juego.querySelector('.game-wait p').textContent = 'Juego precargado. Pulsa START para jugar.';
+      var siguiente = juegos[indice + 1];
+      if (siguiente && !siguiente.querySelector('iframe').getAttribute('src')) {
+        setTimeout(function () {
+          if (!siguiente.classList.contains('activo')) { cargarJuego(siguiente); }
+        }, 800);
+      }
     }
   });
 
@@ -527,6 +560,11 @@ juegos.forEach(function (juego) {
     var solicitar = iframe.requestFullscreen || iframe.webkitRequestFullscreen;
     if (solicitar) { solicitar.call(iframe); }
   });
+});
+
+// Empieza a precargar el primer juego cuando termina de cargar la página.
+window.addEventListener('load', function () {
+  if (juegos[0]) { cargarJuego(juegos[0]); }
 });
 </script>
 </body>
