@@ -111,6 +111,10 @@ h1 {
   font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: .98; letter-spacing: .02em; margin-bottom: 22px;
 }
 h1 em { font-style: normal; color: var(--mars); text-shadow: 0 0 36px rgba(255, 106, 43, .45); }
+h1 .t-main { display: block; }
+h1 .t-and { display: block; margin: 6px 0; font-size: .38em; letter-spacing: .3em; text-transform: uppercase; color: var(--cyan); }
+h1 .t-second { font-size: .52em; line-height: 1.1; }
+h1 .t-second em { color: var(--cyan); text-shadow: 0 0 30px rgba(54, 214, 255, .45); }
 .lead { font-size: 1.5rem; font-weight: 600; color: #fff; margin-bottom: 10px; }
 .hero-description { color: var(--muted); max-width: 52ch; margin-bottom: 28px; }
 .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
